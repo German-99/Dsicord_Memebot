@@ -1,6 +1,10 @@
 import discord
 import requests
 import json
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def get_meme():
   response = requests.get('https://meme-api.com/gimme')
@@ -21,4 +25,4 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = MyClient(intents=intents)
-client.run('This is the token') # Token asignado
+client.run(os.getenv('DISCORD_TOKEN')) # Token asignado
